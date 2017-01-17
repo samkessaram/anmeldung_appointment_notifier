@@ -1,7 +1,5 @@
 require 'httparty'
 require 'nokogiri'
-require 'pry'
-require 'launchy'
 
 class Burgerbot
 
@@ -34,9 +32,6 @@ class Burgerbot
       nil
     else
       puts "DING DONG THERE'S AN APPOINTMENT!"
-      link = "https://service.berlin.de/terminvereinbarung/termin/termin.php?" + @parsed_page.css("div.collapsible-body td.buchbar a").to_s.split('termin.php?')[1].split("title")[0]
-      Launchy.open(link)
-
       (1..3).each do
         print "\a"
       end
